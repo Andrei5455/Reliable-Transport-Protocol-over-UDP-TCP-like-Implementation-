@@ -34,7 +34,7 @@ To maximize throughput while preventing receiver buffer overflow and network con
 * **Congestion Control (BDP Optimization):** During setup, the transmission window limit (`max_window_seq`) is derived from the **Bandwidth-Delay Product (BDP)** divided by the maximum payload size (`MAX_DATA_SIZE`). This dictates the absolute upper bound of packets in-flight.
 * **Flow Control:** Every incoming ACK from the receiver includes a `recv_window` field advertising the remaining free space in the application's receive buffer (`MAX_BUFFER_SIZE - buffer_len`).
 * **Dynamic Window Adaptation:** On each ACK arrival, the sender evaluates the advertised buffer space and restricts transmission using the equation:
-  $$\text{Effective Window} = \min(\text{max\_window\_seq}, \text{recv\_window\_size})$$
+  **Effective Window** = `min(max_window_seq, recv_window_size)`
 
 ---
 
